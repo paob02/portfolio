@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DESIGN SYSTEM
+   Japandi-inspired: a warm, earthy custom palette (Linen, Café noir, Spiced
+   Wine, and friends), soft rounded corners, and very quiet shadows. Nothing
+   here is pure black, pure white, or fully saturated — that flatness is what
+   reads as "cute and soft" instead of "clean and clinical".
+
+   How this file is organized:
+     1. Color tokens      - raw values, swapped between light/dark
+     2. Tailwind aliases   - `@theme inline` turns tokens into real utility
+                             classes (bg-*, text-*, rounded-*, shadow-*)
+     3. Typography scale   - raw size/weight/tracking values per text role
+     4. Typography utils   - one class per role (e.g. `text-h1`) bundling
+                             all of the above so components never have to
+                             remember to combine size + weight + tracking
+     5. Base element styles
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   1. Color tokens
+
+   Palette below is fixed — your nine named colors. This block only decides
+   which semantic *role* each one plays; the hex values themselves never
+   change between light and dark mode, only the mapping does.
+
+   Role assignment was chosen by actual WCAG contrast ratio, not just by eye:
+     Café noir on Linen      = 11.6:1   (light-mode body text)
+     Clockwork on Linen      =  6.3:1   (light-mode muted text)
+     Spiced Wine on Linen    =  9.2:1   (light-mode accent, both as text
+                                         and as button fill against Linen text)
+     Linen on Café noir      = 11.6:1   (dark-mode body text)
+     Latte on Café noir      =  7.2:1   (dark-mode muted text)
+     Olive harvest on Café noir = 3.9:1 (dark-mode accent — see note below)
+
+   Note on dark-mode accent: none of the nine colors is both saturated and
+   light enough to hit the usual 4.5:1 text-contrast target against a dark
+   background — they're all either dark-earthy or light-neutral, with
+   nothing bright in between. Olive harvest (3.9:1) is the best of that
+   set; it comfortably passes for large text and UI elements (3:1) but
+   falls a little short for small accent text like the eyebrow labels. If
+   that matters to you, the fix is a dark-mode-only lightened tint of Olive
+   harvest — ask and I'll add one — but I didn't want to invent a color
+   outside your palette without checking first.
+
+   `Deep olive` isn't assigned a role yet — it's in reserve for a future
+   need (a second accent, a badge variant, etc.).
+   ---------------------------------------------------------------------------- */
+:root {
+  /* Tells the browser to render native UI (scrollbars, form controls,
+     text-selection highlight) in a light style to match our palette. */
+  color-scheme: light;
+
+  /* The nine named colors, unchanged. */
+  --palette-cafe-noir: #443223;
+  --palette-clockwork: #72583e;
+  --palette-weathered: #a08670;
+  --palette-latte: #dbc4a5;
+  --palette-deep-olive: #44422d;
+  --palette-olive-harvest: #9d9167;
+  --palette-spiced-wine: #743014;
+  --palette-golden-batter: #e8d1a7;
+  --palette-linen: #fff9f3;
+
+  --background: var(--palette-linen);
+  --surface: var(--palette-golden-batter); /* cards, panels — one notch deeper than background */
+  --border: var(--palette-latte); /* soft hairline dividers */
+  --foreground: var(--palette-cafe-noir); /* body text */
+  --foreground-muted: var(--palette-clockwork); /* captions, meta text, secondary copy */
+  --accent: var(--palette-spiced-wine); /* links, buttons, focus rings */
+  --accent-foreground: var(--palette-linen); /* text/icons placed on top of a filled accent */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --background: var(--palette-cafe-noir);
+    --surface: var(--palette-clockwork);
+    --border: var(--palette-weathered);
+    --foreground: var(--palette-linen);
+    --foreground-muted: var(--palette-latte);
+    --accent: var(--palette-olive-harvest); /* see contrast note above */
+    --accent-foreground: var(--palette-cafe-noir);
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   2. Tailwind aliases
+
+   `@theme inline` does two things at once: it registers each variable under
+   a Tailwind namespace (so `--radius-card` becomes usable as `rounded-card`,
+   `--color-surface` becomes `bg-surface` / `text-surface` / `border-surface`,
+   etc.), and the `inline` keyword tells Tailwind to keep pointing at the
+   `var(--background)` reference above rather than resolving it once at build
+   time — which is what lets the same class swap color at runtime for dark
+   mode instead of being frozen to whichever mode was active during build.
+   ---------------------------------------------------------------------------- */
+@theme inline {
+  /* Font — mapped to the CSS variable next/font generates for Geist. */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Semantic colors -> bg-background, text-foreground, border-border, etc. */
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Radius — deliberately generous. Soft, pillowy corners are a big part of
+     what makes rounded UI read as "cute" rather than "sharp and corporate". */
+  --radius-control: var(--radius-xl); /* buttons, inputs, small interactive elements */
+  --radius-card: var(--radius-3xl); /* cards, images, larger panels */
+  --radius-pill: 9999px; /* tags, pill buttons, avatars */
+
+  /* Shadow — very soft and warm-tinted (using the same brown hue as our
+     neutrals, not flat black) so elevation feels gentle instead of harsh. */
+  --shadow-card: 0 1px 2px oklch(30% 0.02 50 / 4%), 0 12px 28px oklch(30% 0.02 50 / 6%);
+  --shadow-elevated: 0 6px 16px oklch(30% 0.02 50 / 10%), 0 20px 48px oklch(30% 0.02 50 / 14%);
+
+  /* Spacing — one semantic token for the generous vertical rhythm between
+     major page sections (py-section, gap-section, ...). Everything smaller
+     than this already has a home: Tailwind's default spacing scale is a
+     multiple of 4px (`--spacing: 0.25rem`), so p-1=4px, p-2=8px, p-3=12px,
+     p-4=16px, p-6=24px, p-8=32px, p-12=48px, p-16=64px — exactly the 4/8/12/
+     16/24/32/48/64 scale requested, with no extra tokens needed for it. */
+  --spacing-section: clamp(3rem, 2rem + 5vw, 6rem); /* 48px on mobile -> 96px on desktop */
+}
+
+/* ----------------------------------------------------------------------------
+   3. Typography scale
+
+   Raw values per text role, kept outside `@theme` on purpose: these feed the
+   compound `@utility` classes in section 4, not standalone Tailwind
+   utilities, so there's no `text-h1` (font-size only) fighting with a
+   same-named custom utility.
+
+   Sizes for headings use `clamp()` so they scale smoothly with the viewport
+   instead of jumping at breakpoints — fluid type, one value covers every
+   screen size. Tracking stays close to 0 (rather than tightened negative
+   values) and heading weight tops out at semibold — both softer, warmer
+   choices than a tech/corporate type system that leans on heavy weight and
+   tight tracking for punch.
+   ---------------------------------------------------------------------------- */
+:root {
+  --text-display-size: clamp(2.5rem, 1.9rem + 3vw, 4.5rem); /* 40px -> 72px, hero headline */
+  --text-display-leading: 1.1;
+  --text-display-weight: 500; /* medium, not bold — a gentle, quiet presence */
+  --text-display-tracking: -0.01em;
+
+  --text-h1-size: clamp(2rem, 1.7rem + 1.5vw, 2.75rem); /* 32px -> 44px, page title */
+  --text-h1-leading: 1.15;
+  --text-h1-weight: 600;
+  --text-h1-tracking: -0.01em;
+
+  --text-h2-size: clamp(1.5rem, 1.35rem + 0.75vw, 2rem); /* 24px -> 32px, section heading */
+  --text-h2-leading: 1.25;
+  --text-h2-weight: 600;
+  --text-h2-tracking: 0em;
+
+  --text-h3-size: clamp(1.25rem, 1.18rem + 0.35vw, 1.5rem); /* 20px -> 24px, subsection heading */
+  --text-h3-leading: 1.35;
+  --text-h3-weight: 600;
+  --text-h3-tracking: 0em;
+
+  --text-body-lg-size: 1.125rem; /* 18px, intro paragraphs */
+  --text-body-lg-leading: 1.65;
+  --text-body-lg-weight: 400;
+  --text-body-lg-tracking: 0em;
+
+  --text-body-size: 1rem; /* 16px, default paragraph text */
+  --text-body-leading: 1.65;
+  --text-body-weight: 400;
+  --text-body-tracking: 0em;
+
+  --text-caption-size: 0.875rem; /* 14px, image captions, meta info */
+  --text-caption-leading: 1.5;
+  --text-caption-weight: 400;
+  --text-caption-tracking: 0em;
+
+  --text-label-size: 0.75rem; /* 12px, eyebrow labels, tags, overlines */
+  --text-label-leading: 1.4;
+  --text-label-weight: 600;
+  --text-label-tracking: 0.06em;
+}
+
+/* ----------------------------------------------------------------------------
+   4. Typography utility classes
+
+   `@utility` is Tailwind v4's way to define a custom, fully-composed utility
+   class (it also makes the class available to variants like `sm:text-h1` or
+   `hover:text-h1` for free). Each one bundles everything a given text role
+   needs — size, line-height, weight, tracking, and color where relevant —
+   into a single class name, so e.g. `<h1 className="text-h1">` is complete
+   on its own instead of relying on someone remembering to also add
+   `font-semibold tracking-tight` every time.
+   ---------------------------------------------------------------------------- */
+@utility text-display {
+  font-size: var(--text-display-size);
+  line-height: var(--text-display-leading);
+  font-weight: var(--text-display-weight);
+  letter-spacing: var(--text-display-tracking);
+}
+
+@utility text-h1 {
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-leading);
+  font-weight: var(--text-h1-weight);
+  letter-spacing: var(--text-h1-tracking);
+}
+
+@utility text-h2 {
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-leading);
+  font-weight: var(--text-h2-weight);
+  letter-spacing: var(--text-h2-tracking);
+}
+
+@utility text-h3 {
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-leading);
+  font-weight: var(--text-h3-weight);
+  letter-spacing: var(--text-h3-tracking);
+}
+
+@utility text-body-lg {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-leading);
+  font-weight: var(--text-body-lg-weight);
+  letter-spacing: var(--text-body-lg-tracking);
+}
+
+@utility text-body {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-leading);
+  font-weight: var(--text-body-weight);
+  letter-spacing: var(--text-body-tracking);
+}
+
+/* Captions default to muted color — that's their defining trait, they're
+   always secondary to the content they're attached to. */
+@utility text-caption {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-leading);
+  font-weight: var(--text-caption-weight);
+  letter-spacing: var(--text-caption-tracking);
+  color: var(--foreground-muted);
+}
+
+/* Labels are uppercase + muted by default (eyebrow text above a heading,
+   tag/pill text) — again, the styling that makes something "a label". */
+@utility text-label {
+  font-size: var(--text-label-size);
+  line-height: var(--text-label-leading);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-tracking);
+  text-transform: uppercase;
+  color: var(--foreground-muted);
+}
+
+/* ----------------------------------------------------------------------------
+   5. Base element styles
+   ---------------------------------------------------------------------------- */
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

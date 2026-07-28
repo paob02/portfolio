@@ -1,12 +1,12 @@
 export const siteConfig = {
-  name: "Your Name",
-  title: "Your Name — UX/UI Designer",
+  name: "Pauline Björk",
+  title: "Pauline Björk — UX/UI Designer",
   description:
     "UX/UI portfolio showcasing case studies from research through final UI.",
-  email: "hello@example.com",
+  email: "pauline.bjork@gmail.com",
   nav: [
     { label: "Work", href: "/work" },
-    { label: "About", href: "/about" },
+    { label: "About me", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
 };

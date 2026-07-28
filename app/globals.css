@@ -52,6 +52,12 @@
      text-selection highlight) in a light style to match our palette. */
   color-scheme: light;
 
+  /* Always reserves space for a vertical scrollbar, even on short pages that
+     don't need one. Without this, navigating from a long page (with a
+     scrollbar) to a short one (without) shifts all centered content
+     sideways by the scrollbar's width — a common, easy-to-miss layout jump. */
+  scrollbar-gutter: stable;
+
   /* The nine named colors, unchanged. */
   --palette-cafe-noir: #443223;
   --palette-clockwork: #72583e;

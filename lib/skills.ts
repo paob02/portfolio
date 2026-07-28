@@ -6,14 +6,19 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     title: "Research & Strategy",
-    skills: ["User Research", "Usability Testing", "Journey Mapping", "Information Architecture"],
+    skills: ["User Research", "Interviewing", "Participatory Design", "Ethnographic Observation", "Design Thinking"],
   },
   {
     title: "Design & Prototyping",
-    skills: ["Wireframing", "Prototyping", "Design Systems", "Interaction Design"],
+    skills: ["Wireframing", "Prototyping", "User-Centered Design", "Personas", "Storyboarding"],
   },
   {
     title: "Tools",
-    skills: ["Figma", "FigJam", "Notion", "Maze"],
+    skills: ["Figma", "CAD/CAM", "GitHub", "Trello", "Miro"],
   },
+  {
+    title: "Programming Languages",
+    skills: ["JavaScript", "Python", "C#"],
+  },
+  
 ];

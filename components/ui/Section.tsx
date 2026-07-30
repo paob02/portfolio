@@ -32,7 +32,7 @@ export function Section({
   return (
     <Tag
       id={id}
-      className={cn(spacingClasses[spacing], tone === "surface" && "bg-surface", className)}
+      className={cn(spacingClasses[spacing], tone === "surface" && "bg-section-surface", className)}
     >
       {children}
     </Tag>

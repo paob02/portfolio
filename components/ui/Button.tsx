@@ -6,7 +6,12 @@ type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: "bg-accent text-accent-foreground hover:opacity-90 active:opacity-80",
+  // Light mode: resting state is the old hovered look (brightened), hover
+  // drops back to the plain accent color — an intentional inversion.
+  // Dark mode keeps the original behavior (plain at rest, brightens on hover).
+  primary:
+    "bg-accent text-accent-foreground brightness-150 hover:brightness-100 active:brightness-95 " +
+    "dark:text-[var(--palette-linen)] dark:brightness-100 dark:hover:brightness-150",
   secondary: "border border-border bg-surface text-foreground hover:bg-border",
   ghost: "text-foreground-muted hover:bg-surface hover:text-foreground",
 };

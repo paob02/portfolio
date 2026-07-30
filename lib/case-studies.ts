@@ -12,6 +12,12 @@ export type CaseStudy = {
   featured: boolean;
   /** Optional — a figma.com share URL, rendered as an interactive embed on the case study page. */
   figmaEmbedUrl?: string;
+  /** Optional — images shown under `details`, before the Figma embed (each at its natural aspect ratio). */
+  galleryImages?: { src: string; alt: string; width: number; height: number }[];
+  /** Optional — a link to a PDF document, shown under `details` before the Figma embed. Linked rather than
+   *  embedded since PDFs (e.g. a full thesis) can be far too large to show inline. */
+  pdfUrl?: string;
+  pdfLabel?: string;
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -19,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "HCI-project",
     title: "Human Computer Interaction Project",
     summary: "This was a group project for the course Human Computer Interaction at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "The aim for this project was to create an application to help students plan their workouts into their busy school schedule.",
     role: "Software Engineer Student",
     year: "2023",
     tags: ["Research", "UI Design"],
@@ -33,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "multiplay",
     title: "MultiPlay",
     summary: "This was a group project for the course Interaction Design Methodologies at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "The aim of this project was to undergo an ethnographic study of an area in Gotheburg, define a problem in that are that stops the people who live there to interact with each other, and then solve that problem. My groups are was Tynnered and the focus problem we defines was that the teenagers in Tynnered didn't have a place to hang out with each other. How we solved that problem can be viewed on the project poster below.",
     role: "Software Engineer Student",
     year: "2024",
     tags: ["UX Design", "UI Design"],
@@ -42,12 +48,20 @@ export const caseStudies: CaseStudy[] = [
     featured: false,
     figmaEmbedUrl:
       "https://www.figma.com/proto/oWir1rGhjblCkqGwscodtC/MultiPlay?node-id=0-1&t=MiOV0kZRa3twXCSs-1",
+    galleryImages: [
+      {
+        src: "/images/case-studies/multiplay/MultiPlay.png",
+        alt: "MultiPlay project poster, describing the research into teenage social spaces in Tynnered, the design process, and the final rotating game-table concept.",
+        width: 1190,
+        height: 1684,
+      },
+    ],
   },
   {
     slug: "booking-system",
     title: "Booking System",
     summary: "This was an individual examination for the course Graphical Interfaces at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "The aim of this course examination was to create a booking system for teachers and students to book rooms or equipment at campus. My version below is the tachers point of view as it contains everything a student should be able to do and more as they have higher access in the system, such as booking lecture halls or accepting student booking requests. ",
     role: "Software Engineer Student",
     year: "2024",
     tags: ["UX Design", "UI Design"],
@@ -59,9 +73,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "workbook",
-    title: "Agumented Reality for Online Shopping",
+    title: "Augmented Reality for Online Shopping",
     summary: "This is a workbook for an individual project for the course Emerging Trends and Critical Topics in Interaction Design at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "The aim was to explore different trends and then pick one to explore further. In the end you were supposed to define problems within the trend and come up with possible solutions. I choose the increase in online shopping. The results of my research can be seen in the slides below",
     role: "Software Engineer Student",
     year: "2025",
     tags: ["UX Design"],
@@ -73,9 +87,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "imat-skiss",
-    title: "Food Store Website Project",
+    title: "Food Store Website",
     summary: "This was a group project for the course Design and Construction of Grafical Interfaces at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "This was the first time I worked in Figma and it was the first course where we learned about UI design during my bachelor studies.",
     role: "Software Engineer Student",
     year: "2023",
     tags: ["UX Design", "UI Design"],
@@ -89,7 +103,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "presentation",
     title: "The Offline Troll",
     summary: "This was an individual project for the course Concept Driven Interaction Design at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    details: "This was a very open ended project where we were allowed to choose our own topic as long as it fit into the cocept-driven meathods we learned about and choosed to use.",
     role: "Software Engineer Student",
     year: "2025",
     tags: ["UX Design"],
@@ -101,8 +115,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "masterthesis",
     title: "Master's Thesis",
-    summary: "This is my Master's Thesis at Chalmers University of Technology.",
-    details: "Write more about the project here",
+    summary: "This is my Master's Thesis from Chalmers University of Technology.",
+    details: "The name of this thesis is 'From Touch to Understanding: Tangible Design for Teaching Science' and was conducted at Onsala Space Observatory where we were supposed to develop an interactive installation at their visitor centre to teach adolescents about scientific scales. After 5 months of research, prototyping, user testing and multiple iterations we created a prototype that fullfilled our defined design goals. In a team of two, me and my classmate were in charge of designing an interactive installation that thought children, age 10-15, about scientific scales. As we were only two people, my role entailed every aspect of a design project. From ideating initial ideas, researching children's behaviours and learning processes, sketching, creating Figma prototypes, User testing in collaboration with the children, conducting user observations during study visits to the space observatory and building physical prototypes with Arduino code. The project was extended to a summer job as research assistants where I was in charge of designing the UI and coding a functional program based on our final version from our thesis and 3D modeling blueprints of its physical design. Below you can see the thesis pdf, images from the final cersion of the installation and the Wizard-of-OZ version of the game we created for the thesis.",
     role: "Software Engineer Student",
     year: "2026",
     tags: ["Tangible Interaction", "UX Design", "UI Design"],
@@ -110,6 +124,55 @@ export const caseStudies: CaseStudy[] = [
     coverImageAlt: "",
     featured: false,
     figmaEmbedUrl: "https://www.figma.com/proto/HL6Jk7IUy8VUMOzrySopNb/Karta?node-id=0-1&t=YAPF55GVUeYXxXrI-1",
+    pdfUrl: "/images/case-studies/masterthesis/Master_Thesis_Scientific_Scales_2026.pdf",
+    pdfLabel: "Read the full thesis (PDF)",
+    galleryImages: [
+      {
+        src: "/images/case-studies/masterthesis/FinalVersionOSO.jpg",
+        alt: "The finished interactive installation at Onsala Space Observatory: a wooden console with buttons and a touchscreen showing a quiz about the scale of scientific objects.",
+        width: 4032,
+        height: 3024,
+      },
+      {
+        src: "/images/case-studies/masterthesis/MammaSpelar.jpg",
+        alt: "Visitors testing the installation, pressing buttons on the console while a question is shown on the screen.",
+        width: 3024,
+        height: 4032,
+      },
+      {
+        src: "/images/case-studies/masterthesis/Modeller.jpg",
+        alt: "Small 3D-printed models used in the installation, each representing a different object on the scale of size, from DNA to a black hole.",
+        width: 4032,
+        height: 3024,
+      },
+      {
+        src: "/images/case-studies/masterthesis/3Dcad.png",
+        alt: "3D CAD blueprint of the installation's console housing.",
+        width: 1730,
+        height: 1040,
+      },
+    ],
+  },
+  {
+    slug: "tunnel",
+    title: "Tunnel to Success",
+    summary: "This was a group project for the course Interaction Design Project at Chalmers University of Technology.",
+    details: "The project was in collaboation with the sports museum in Gothenburg and they wanted us students to create interactive installations for their muesum that we thouhgt would attract and entertain visitors. My groups focus was on the 100 year anaversary of the womens olympiad that that was held in Gothenburg in 1926. Our installation was an immersive tunnel that would show users how it was to be a woman insports a hundred years ago.",
+    role: "Software Engineer Student",
+    year: "2025",
+    tags: ["UX Design"],
+    coverImage: "/images/case-studies/tunnel/cover.jpg",
+    coverImageAlt: "",
+    featured: false,
+    figmaEmbedUrl: "",
+    galleryImages: [
+      {
+        src: "/images/case-studies/tunnel/TunnelToSuccess.png",
+        alt: "Tunnel to Success project poster, an interactive sports museum installation created for the 100th anniversary of the 1926 Women's Olympiad in Gothenburg.",
+        width: 632,
+        height: 1705,
+      },
+    ],
   },
 ];
 

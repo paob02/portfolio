@@ -59,14 +59,14 @@ const workExperience: WorkExperienceEntry[] = [
     role: "Assembling and Machine Operator",
     startDate: "June 2021",
     endDate: "June 2025",
-    description: "Write a short description of what this role involved and what you took away from it.",
+    description: "Work experience in both inner and outer assembling operations of car engines. Later on I worked as a machine operator of crankshaft processing.",
   },
   {
     company: "Volvo Cars",
     role: "Automation Technician",
     startDate: "August 2018",
     endDate: "June 2021",
-    description: "Write a short description of what this role involved and what you took away from it.",
+    description: "Automation technician in an industrial processing of crankshafts for car engines.",
   },
 ];
 

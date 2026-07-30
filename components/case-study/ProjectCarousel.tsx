@@ -8,10 +8,15 @@ import type { CaseStudy } from "@/lib/case-studies";
 
 type ProjectCarouselProps = {
   caseStudies: CaseStudy[];
+  /** Forwarded to each `ProjectCard` — set false to omit cover images. Defaults to true. */
+  showImage?: boolean;
 };
 
 const arrowButtonClasses =
   "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors " +
+  // Dark mode: filled with Café noir so the button reads clearly against the
+  // section's background instead of just a border that blends into it.
+  "dark:bg-[var(--palette-cafe-noir)] " +
   "hover:border-transparent hover:bg-surface hover:text-foreground " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background " +
   "disabled:pointer-events-none disabled:opacity-40";
@@ -27,7 +32,7 @@ const arrowButtonClasses =
  * (and the "View all work" button below it) from jumping up and down as
  * you page through projects with differently-long summaries.
  */
-export function ProjectCarousel({ caseStudies }: ProjectCarouselProps) {
+export function ProjectCarousel({ caseStudies, showImage = true }: ProjectCarouselProps) {
   const [index, setIndex] = useState(0);
 
   if (caseStudies.length === 0) {
@@ -52,6 +57,7 @@ export function ProjectCarousel({ caseStudies }: ProjectCarouselProps) {
               role={caseStudy.role}
               year={caseStudy.year}
               tags={caseStudy.tags}
+              showImage={showImage}
             />
           </div>
         ))}

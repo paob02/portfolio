@@ -17,7 +17,7 @@ export default function Home() {
           so the hero itself stays a single, uncluttered visual beat. */}
       <Section spacing="default">
         <Container>
-          <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+          <p className="text-xs font-semibold uppercase tracking-wide text-accent dark:text-[var(--palette-cedar)]">
             UX/UI Designer
           </p>
           <h1 className="mt-4 max-w-3xl text-display text-foreground">
@@ -54,14 +54,24 @@ export default function Home() {
         <Container size="wide">
           <SectionHeading
             eyebrow="Featured Work"
+            eyebrowClassName="dark:text-[var(--palette-deep-olive)]"
             title="My previous work"
-            description="A few project that show what I have done previously."
+            description="A few projects that show what I have done previously."
           />
           <div className="mx-auto mt-12 max-w-2xl">
-            <ProjectCarousel caseStudies={caseStudies} />
+            <ProjectCarousel caseStudies={caseStudies} showImage={false} />
           </div>
           <div className="mt-8 flex justify-center">
-            <Button href="/work" variant="ghost">
+            <Button
+              href="/work"
+              variant="ghost"
+              // `ghost` variant has its own unconditional `text-foreground-muted`
+              // that was silently winning over the plain `text-[linen]` override
+              // (same equal-specificity trap as ProjectCard's bg/border). Since
+              // both modes want Linen here anyway, one unconditional `!important`
+              // rule replaces the two mode-specific ones and fixes it outright.
+              className="bg-[var(--palette-olive-harvest)] text-[var(--palette-linen)]! hover:bg-[var(--palette-olive-harvest)]! hover:brightness-95 dark:bg-[var(--palette-deep-olive)] dark:hover:bg-[var(--palette-deep-olive)]! dark:hover:brightness-150"
+            >
               View all work
             </Button>
           </div>
@@ -71,7 +81,11 @@ export default function Home() {
       {/* Skills */}
       <Section spacing="default">
         <Container>
-          <SectionHeading eyebrow="Skills" title="What I bring to a project" />
+          <SectionHeading
+            eyebrow="Skills"
+            eyebrowClassName="dark:text-[var(--palette-cedar)]"
+            title="What I bring to a project"
+          />
           <div className="mt-12 grid gap-10 sm:grid-cols-3">
             {skillGroups.map((group) => (
               <div key={group.title}>

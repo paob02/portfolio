@@ -30,22 +30,47 @@
      Clockwork on Linen      =  6.3:1   (light-mode muted text)
      Spiced Wine on Linen    =  9.2:1   (light-mode accent, both as text
                                          and as button fill against Linen text)
-     Linen on Café noir      = 11.6:1   (dark-mode body text)
-     Latte on Café noir      =  7.2:1   (dark-mode muted text)
-     Olive harvest on Café noir = 3.9:1 (dark-mode accent — see note below)
+     Linen on Deep olive     =  9.7:1   (dark-mode body text)
+     Latte on Deep olive     =  6.0:1   (dark-mode muted text)
+     Olive harvest on Deep olive = 3.2:1 (dark-mode accent — see note below)
+     Linen on Cedar          =  4.2:1   (headings on the dark-mode section band)
+     Latte on Cedar          =  2.6:1   (muted/caption text on the same band — see note)
 
    Note on dark-mode accent: none of the nine colors is both saturated and
    light enough to hit the usual 4.5:1 text-contrast target against a dark
    background — they're all either dark-earthy or light-neutral, with
-   nothing bright in between. Olive harvest (3.9:1) is the best of that
+   nothing bright in between. Olive harvest (3.2:1) is the best of that
    set; it comfortably passes for large text and UI elements (3:1) but
-   falls a little short for small accent text like the eyebrow labels. If
-   that matters to you, the fix is a dark-mode-only lightened tint of Olive
+   falls short for small accent text like the eyebrow labels. If that
+   matters to you, the fix is a dark-mode-only lightened tint of Olive
    harvest — ask and I'll add one — but I didn't want to invent a color
    outside your palette without checking first.
 
-   `Deep olive` isn't assigned a role yet — it's in reserve for a future
-   need (a second accent, a badge variant, etc.).
+   Note on Cedar (the dark-mode section-band color): muted/caption text
+   (Latte) only hits 2.6:1 against it — noticeably below the 4.5:1 AA
+   target for small text. Headings are fine (4.2:1, comfortable for large
+   text). This shows up on the Education section's dates/institution line
+   and the Featured Work description. Flagging it rather than silently
+   picking a different shade, since Cedar was given as an exact hex.
+
+   Light mode, redone to mirror dark mode's structure (distinct tones per
+   role) while keeping the page itself light:
+     Latte section-band vs Café noir heading = 7.2:1
+     Latte section-band vs Clockwork muted   = 3.9:1  (a touch lower than
+                                                        Golden batter gave,
+                                                        still fine for large
+                                                        text/UI, marginal for
+                                                        small captions)
+   Work cards specifically go the opposite direction from every other
+   light-mode surface — they're the one deliberately dark, green element
+   on an otherwise light page (Deep olive fill, Olive harvest border,
+   Linen/Golden batter text). That's a component-level override in
+   ProjectCard, not a token change, so it doesn't affect anything else.
+     Linen title on Deep olive        = 9.8:1
+     Golden batter body on Deep olive = 6.9:1
+     Olive harvest border on Deep olive = 3.2:1 (non-text, comfortably
+                                                  clears the 3:1 UI-component
+                                                  guideline)
    ---------------------------------------------------------------------------- */
 :root {
   /* Tells the browser to render native UI (scrollbars, form controls,
@@ -58,7 +83,7 @@
      sideways by the scrollbar's width — a common, easy-to-miss layout jump. */
   scrollbar-gutter: stable;
 
-  /* The nine named colors, unchanged. */
+  /* The nine named colors, plus Cedar (added for the dark-mode section band). */
   --palette-cafe-noir: #443223;
   --palette-clockwork: #72583e;
   --palette-weathered: #a08670;
@@ -68,9 +93,11 @@
   --palette-spiced-wine: #743014;
   --palette-golden-batter: #e8d1a7;
   --palette-linen: #fff9f3;
+  --palette-cedar: #7c7960;
 
   --background: var(--palette-linen);
-  --surface: var(--palette-golden-batter); /* cards, panels — one notch deeper than background */
+  --surface: var(--palette-golden-batter); /* cards, header, buttons — one notch deeper than background */
+  --section-surface: var(--palette-latte); /* the alternating Section band tone — a distinct light tone from surface, not just a copy of it */
   --border: var(--palette-latte); /* soft hairline dividers */
   --foreground: var(--palette-cafe-noir); /* body text */
   --foreground-muted: var(--palette-clockwork); /* captions, meta text, secondary copy */
@@ -82,8 +109,9 @@
   :root {
     color-scheme: dark;
 
-    --background: var(--palette-cafe-noir);
-    --surface: var(--palette-clockwork);
+    --background: var(--palette-deep-olive); /* top/bottom page background */
+    --surface: var(--palette-clockwork); /* cards, header, buttons — unchanged on purpose */
+    --section-surface: var(--palette-cedar); /* the alternating Section band tone (the "middle chunk") */
     --border: var(--palette-weathered);
     --foreground: var(--palette-linen);
     --foreground-muted: var(--palette-latte);
@@ -110,6 +138,7 @@
   /* Semantic colors -> bg-background, text-foreground, border-border, etc. */
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-section-surface: var(--section-surface);
   --color-border: var(--border);
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);

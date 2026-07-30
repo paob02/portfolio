@@ -2,7 +2,9 @@ import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { BackLink } from "@/components/ui/BackLink";
+import { Button } from "@/components/ui/Button";
 import { FigmaEmbed } from "@/components/case-study/FigmaEmbed";
+import { ImageGallery } from "@/components/case-study/ImageGallery";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -37,6 +39,20 @@ export default async function CaseStudy({
         <p className="mt-6 max-w-2xl text-body text-foreground-muted">
           {caseStudy.details}
         </p>
+
+        {caseStudy.pdfUrl && (
+          <div className="mt-8">
+            <Button href={caseStudy.pdfUrl} variant="secondary" target="_blank" rel="noopener noreferrer">
+              {caseStudy.pdfLabel ?? "Open PDF"}
+            </Button>
+          </div>
+        )}
+
+        {caseStudy.galleryImages && caseStudy.galleryImages.length > 0 && (
+          <div className="mt-12">
+            <ImageGallery images={caseStudy.galleryImages} />
+          </div>
+        )}
 
         {caseStudy.figmaEmbedUrl && (
           <div className="mt-12">

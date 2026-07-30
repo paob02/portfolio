@@ -12,6 +12,8 @@ const levelClasses: Record<HeadingLevel, string> = {
 type SectionHeadingProps = {
   /** Small kicker above the title, e.g. "Case Study" or "About" — for personality, not just labeling. */
   eyebrow?: string;
+  /** Extra classes for the eyebrow specifically — e.g. to override its color per-instance. */
+  eyebrowClassName?: string;
   title: ReactNode;
   description?: ReactNode;
   /** Controls both the semantic tag and the visual size — keeps document outline and design in sync. */
@@ -23,6 +25,7 @@ type SectionHeadingProps = {
 /** The recurring intro block for a page section: optional eyebrow, heading, optional supporting copy. */
 export function SectionHeading({
   eyebrow,
+  eyebrowClassName,
   title,
   description,
   as = "h2",
@@ -34,7 +37,14 @@ export function SectionHeading({
   return (
     <div className={cn(align === "center" && "text-center", className)}>
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-accent">{eyebrow}</p>
+        <p
+          className={cn(
+            "mb-3 text-xs font-semibold uppercase tracking-wide text-accent",
+            eyebrowClassName
+          )}
+        >
+          {eyebrow}
+        </p>
       )}
       <Heading className={cn(levelClasses[as], "text-foreground")}>{title}</Heading>
       {description && (

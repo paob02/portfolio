@@ -4,7 +4,12 @@ import { cn } from "@/lib/cn";
 type BadgeVariant = "neutral" | "accent";
 
 const variantClasses: Record<BadgeVariant, string> = {
-  neutral: "border border-border bg-background text-foreground-muted",
+  // Light mode: same fill as "View my work" at rest — Spiced Wine at
+  // brightness(150%), not an approximated hex (that resolves to roughly
+  // #ae481e; Linen text stays ~5.4:1 against it). Dark mode: plain Spiced
+  // Wine with Latte text, unchanged.
+  neutral:
+    "border border-border bg-[var(--palette-spiced-wine)] brightness-150 text-[var(--palette-linen)] dark:brightness-100 dark:text-[var(--palette-latte)]",
   // Tinted with the accent color itself (at low opacity) rather than a
   // separate hardcoded color, so it stays correct if the palette changes.
   accent: "border border-transparent bg-accent/10 text-accent",

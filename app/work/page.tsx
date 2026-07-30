@@ -14,7 +14,7 @@ export default function Work() {
           {caseStudies.map((caseStudy) => (
             <ProjectCard
               key={caseStudy.slug}
-              layout="horizontal"
+              showImage={false}
               href={`/work/${caseStudy.slug}`}
               title={caseStudy.title}
               summary={caseStudy.summary}

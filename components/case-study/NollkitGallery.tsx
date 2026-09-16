@@ -58,18 +58,19 @@ export function NollkitGallery() {
             width={350}
             height={350}
             quality={100}
-            className="shrink-0 rounded-card border border-border"
+            className="mt-2 shrink-0 rounded-card border border-border"
           />
         </div>
-        {/* 350 (Marke22) + 350 (marketyg) + 16 (gap-4) = 716px, so markesput's
-            top/bottom line up exactly with the stacked pair's top/bottom. */}
+        {/* 350 (Marke22) + 350 (marketyg) + 16 (gap-4) + 8 (marketyg's extra mt-2)
+            = 724px, so markesput's top/bottom line up exactly with the stacked
+            pair's top/bottom. */}
         <Image
           src={`${BASE}/markesput.png`}
           alt="The NollKIT badge embroidered onto fabric."
           width={482}
           height={708}
           quality={100}
-          className={`h-[716px] ${imageClassName}`}
+          className={`h-[724px] ${imageClassName}`}
         />
       </div>
 

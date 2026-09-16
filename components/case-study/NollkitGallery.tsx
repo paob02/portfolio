@@ -48,16 +48,16 @@ export function NollkitGallery() {
           <Image
             src={`${BASE}/Marke22.png`}
             alt="The NollKIT 2022 badge design."
-            width={600}
-            height={600}
+            width={300}
+            height={300}
             quality={100}
             className="shrink-0 rounded-card border border-border"
           />
           <Image
             src={`${BASE}/marketyg.png`}
             alt="The NollKIT badge design printed on fabric."
-            width={600}
-            height={600}
+            width={300}
+            height={300}
             quality={100}
             className="shrink-0 rounded-card border border-border"
           />

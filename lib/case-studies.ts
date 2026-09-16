@@ -223,7 +223,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "NollKIT is a non-profit comitte at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
     details:
-      "During my studies I participated in the IT department's reception committee. Collaborated with a team of seven to plan, budget, and execute a month-long reception for 140 new IT students, featuring daily events. Gained experience in teamwork, structured planning, graphical design, filming and video editing. Below, the logos and branding I designed is presented.",
+      "During my studies I participated in the IT department's reception committee. Collaborated with a team of seven to plan, budget, and execute a month-long reception for 140 new IT students, featuring daily events. Gained experience in teamwork, structured planning, graphical design, filming and video editing. Below, the logos and branding I designed is presented. Everything was created in Adobe Photoshop.",
     role: "Voluntary work",
     year: "2022",
     tags: ["Graphic design", "Illustration"],

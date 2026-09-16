@@ -44,22 +44,22 @@ export function NollkitGallery() {
       </div>
 
       <div className={rowClassName}>
-        <div className={`flex ${MARKE_ROW_HEIGHT} flex-col gap-4 shrink-0`}>
+        <div className="flex shrink-0 flex-col gap-4">
           <Image
             src={`${BASE}/Marke22.png`}
             alt="The NollKIT 2022 badge design."
-            width={2000}
-            height={2000}
+            width={600}
+            height={600}
             quality={100}
-            className={`aspect-square min-h-0 flex-1 ${imageClassName}`}
+            className="shrink-0 rounded-card border border-border"
           />
           <Image
             src={`${BASE}/marketyg.png`}
             alt="The NollKIT badge design printed on fabric."
-            width={627}
-            height={602}
+            width={600}
+            height={600}
             quality={100}
-            className={`aspect-[627/602] min-h-0 flex-1 ${imageClassName}`}
+            className="shrink-0 rounded-card border border-border"
           />
         </div>
         <Image

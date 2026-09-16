@@ -2,10 +2,11 @@ export type CaseStudy = {
   slug: string;
   title: string;
   summary: string;
-  /** Longer body copy shown on the case study page, between the summary and the prototype embed. */
-  details: string;
-  role: string;
-  year: string;
+  /** Optional — longer body copy shown on the case study page, between the summary and the prototype embed. */
+  details?: string;
+  /** Optional — omit both role and year for work with no single attributable role/date (e.g. a grab-bag of pieces). */
+  role?: string;
+  year?: string;
   tags: string[];
   /** Which section of the work page this case study is grouped under. */
   category: "Graphic design" | "UX/UI design";
@@ -232,10 +233,40 @@ export const caseStudies: CaseStudy[] = [
     coverImageAlt: "The final NollKIT logo.",
     featured: false,
   },
+  {
+    slug: "random-graphic-design",
+    title: "Random graphic design work",
+    summary: "Here I present graphic design work I have created for courses or personal projects.",
+    tags: ["Graphic design", "Illustration"],
+    category: "Graphic design",
+    coverImage: "/images/case-studies/graphicdesign/womenolympic.png",
+    coverImageAlt: "Women's Olympics themed graphic design.",
+    featured: false,
+    galleryImages: [
+      {
+        src: "/images/case-studies/graphicdesign/womenolympic.png",
+        alt: "Women's Olympics themed graphic design.",
+        width: 4960,
+        height: 3508,
+      },
+      {
+        src: "/images/case-studies/graphicdesign/track.png",
+        alt: "Track and field themed graphic design.",
+        width: 1678,
+        height: 398,
+      },
+      {
+        src: "/images/case-studies/graphicdesign/flaskor.jpg",
+        alt: "Bottle packaging graphic design.",
+        width: 4032,
+        height: 3024,
+      },
+    ],
+  },
 ];
 
 function byYearDescending(a: CaseStudy, b: CaseStudy) {
-  return Number(b.year) - Number(a.year);
+  return Number(b.year ?? 0) - Number(a.year ?? 0);
 }
 
 export function getCaseStudy(slug: string) {

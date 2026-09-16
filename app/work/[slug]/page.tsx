@@ -27,9 +27,13 @@ export default async function CaseStudy({
   return (
     <Section spacing="default">
       <Container size="wide">
-        <p className="text-label">
-          {caseStudy.role} · {caseStudy.year}
-        </p>
+        {(caseStudy.role || caseStudy.year) && (
+          <p className="text-label">
+            {caseStudy.role}
+            {caseStudy.role && caseStudy.year ? " · " : null}
+            {caseStudy.year}
+          </p>
+        )}
         <div className="mt-2 flex items-center gap-4">
           <BackLink href="/work" label="Back to work" />
           <h1 className="text-h1 text-foreground">{caseStudy.title}</h1>
@@ -37,9 +41,11 @@ export default async function CaseStudy({
         <p className="mt-4 max-w-2xl text-body-lg text-foreground-muted">
           {caseStudy.summary}
         </p>
-        <p className="mt-6 max-w-2xl text-body text-foreground-muted">
-          {caseStudy.details}
-        </p>
+        {caseStudy.details && (
+          <p className="mt-6 max-w-2xl text-body text-foreground-muted">
+            {caseStudy.details}
+          </p>
+        )}
 
         {caseStudy.pdfUrl && (
           <div className="mt-8">

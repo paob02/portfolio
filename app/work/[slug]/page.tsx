@@ -50,7 +50,7 @@ export default async function CaseStudy({
 
         {caseStudy.galleryImages && caseStudy.galleryImages.length > 0 && (
           <div className="mt-12">
-            <ImageGallery images={caseStudy.galleryImages} />
+            <ImageGallery images={caseStudy.galleryImages} stacked={caseStudy.stackedGallery} />
           </div>
         )}
 

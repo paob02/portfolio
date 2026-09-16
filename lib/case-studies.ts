@@ -14,6 +14,8 @@ export type CaseStudy = {
   figmaEmbedUrl?: string;
   /** Optional — images shown under `details`, before the Figma embed (each at its natural aspect ratio). */
   galleryImages?: { src: string; alt: string; width: number; height: number }[];
+  /** Optional — stack gallery images full-width instead of the default 2-column grid. */
+  stackedGallery?: boolean;
   /** Optional — a link to a PDF document, shown under `details` before the Figma embed. Linked rather than
    *  embedded since PDFs (e.g. a full thesis) can be far too large to show inline. */
   pdfUrl?: string;
@@ -178,7 +180,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "happyhydrate",
     title: "Graphic Design for Electrolyte Drink Packaging",
     summary: "This is a graphic design project for the packaging of an electrolyte drink from the company Happy Hydrate.",
-    details: "The design was created in Adobe Illustrator",
+    details: "The design was created in Adobe Illustrator.",
     role: "Freelance",
     year: "2024",
     tags: ["Graphic design", "Illustration"],
@@ -188,6 +190,7 @@ export const caseStudies: CaseStudy[] = [
     figmaEmbedUrl: "",
     pdfUrl: "",
     pdfLabel: "",
+    stackedGallery: true,
     galleryImages: [
       {
         src: "/images/case-studies/graphicdesign/HappyHydrateLemonLime.png",

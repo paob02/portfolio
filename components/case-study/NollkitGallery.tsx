@@ -5,7 +5,6 @@ const BASE = "/images/case-studies/graphicdesign";
 // Row heights are shared clamp() values so paired images always render at
 // exactly the same height as each other, at any viewport width.
 const LOGO_ROW_HEIGHT = "h-[clamp(96px,22vw,320px)]";
-const MARKE_ROW_HEIGHT = "h-[clamp(112px,26vw,360px)]";
 const TROJA_ROW_HEIGHT = "h-[clamp(96px,26vw,360px)]";
 const NOLLAN_ROW_HEIGHT = "h-[clamp(96px,24vw,340px)]";
 const PHADDER_ROW_HEIGHT = "h-[clamp(80px,18vw,260px)]";
@@ -48,27 +47,29 @@ export function NollkitGallery() {
           <Image
             src={`${BASE}/Marke22.png`}
             alt="The NollKIT 2022 badge design."
-            width={300}
-            height={300}
+            width={350}
+            height={350}
             quality={100}
             className="shrink-0 rounded-card border border-border"
           />
           <Image
             src={`${BASE}/marketyg.png`}
             alt="The NollKIT badge design printed on fabric."
-            width={300}
-            height={300}
+            width={350}
+            height={350}
             quality={100}
             className="shrink-0 rounded-card border border-border"
           />
         </div>
+        {/* 350 (Marke22) + 350 (marketyg) + 16 (gap-4) = 716px, so markesput's
+            top/bottom line up exactly with the stacked pair's top/bottom. */}
         <Image
           src={`${BASE}/markesput.png`}
           alt="The NollKIT badge embroidered onto fabric."
           width={482}
           height={708}
           quality={100}
-          className={`${MARKE_ROW_HEIGHT} ${imageClassName}`}
+          className={`h-[716px] ${imageClassName}`}
         />
       </div>
 

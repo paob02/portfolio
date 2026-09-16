@@ -174,6 +174,35 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "happyhydrate",
+    title: "Graphic Design for Electrolyte Drink Packaging",
+    summary: "This is a graphic design project for the packaging of an electrolyte drink from the company Happy Hydrate.",
+    details: "The design was created in Adobe Illustrator",
+    role: "Freelance",
+    year: "2024",
+    tags: ["Graphic design", "Illustration"],
+    coverImage: "/images/case-studies/happyhydrate/cover.jpg",
+    coverImageAlt: "",
+    featured: false,
+    figmaEmbedUrl: "",
+    pdfUrl: "",
+    pdfLabel: "",
+    galleryImages: [
+      {
+        src: "/images/case-studies/graphicdesign/HappyHydrateLemonLime.png",
+        alt: "Happy Hydrate lemon-lime flavor packaging design.",
+        width: 4032,
+        height: 3024,
+      },
+      {
+        src: "/images/case-studies/graphicdesign/HappyHydrateMixedBerries.png",
+        alt: "Happy Hydrate mixed berries flavor packaging design.",
+        width: 4032,
+        height: 3024,
+      },
+    ],
+  },
 ];
 
 function byYearDescending(a: CaseStudy, b: CaseStudy) {

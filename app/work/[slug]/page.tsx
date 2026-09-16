@@ -5,6 +5,7 @@ import { BackLink } from "@/components/ui/BackLink";
 import { Button } from "@/components/ui/Button";
 import { FigmaEmbed } from "@/components/case-study/FigmaEmbed";
 import { ImageGallery } from "@/components/case-study/ImageGallery";
+import { GroupedGallery } from "@/components/case-study/GroupedGallery";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -51,6 +52,12 @@ export default async function CaseStudy({
         {caseStudy.galleryImages && caseStudy.galleryImages.length > 0 && (
           <div className="mt-12">
             <ImageGallery images={caseStudy.galleryImages} stacked={caseStudy.stackedGallery} />
+          </div>
+        )}
+
+        {caseStudy.galleryGroups && caseStudy.galleryGroups.length > 0 && (
+          <div className="mt-12">
+            <GroupedGallery groups={caseStudy.galleryGroups} />
           </div>
         )}
 

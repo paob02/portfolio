@@ -34,7 +34,9 @@ export function ImageGallery({ images, stacked = false }: ImageGalleryProps) {
           alt={image.alt}
           width={image.width}
           height={image.height}
-          sizes={images.length > 1 && !stacked ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 60vw, 100vw"}
+          // Stacked images render close to full container width, not 60vw — only
+          // the 2-column grid case actually only ever needs half the viewport.
+          sizes={images.length > 1 && !stacked ? "(min-width: 640px) 50vw, 100vw" : "100vw"}
           quality={100}
           className="h-auto w-full rounded-card border border-border"
         />

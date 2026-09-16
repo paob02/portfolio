@@ -242,6 +242,7 @@ export const caseStudies: CaseStudy[] = [
     coverImage: "/images/case-studies/graphicdesign/womenolympic.png",
     coverImageAlt: "Women's Olympics themed graphic design.",
     featured: false,
+    stackedGallery: true,
     galleryImages: [
       {
         src: "/images/case-studies/graphicdesign/womenolympic.png",

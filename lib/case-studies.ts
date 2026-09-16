@@ -22,13 +22,6 @@ export type CaseStudy = {
    *  embedded since PDFs (e.g. a full thesis) can be far too large to show inline. */
   pdfUrl?: string;
   pdfLabel?: string;
-  /** Optional — an alternative to `galleryImages`/`pdfUrl` for case studies where the assets should be
-   *  shown in labeled groups (e.g. several images of the same logo applied to different items). */
-  galleryGroups?: {
-    label: string;
-    images?: { src: string; alt: string; width: number; height: number }[];
-    pdfs?: { url: string; label: string }[];
-  }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -238,87 +231,6 @@ export const caseStudies: CaseStudy[] = [
     coverImage: "/images/case-studies/graphicdesign/Logo_Final_09CCDA.png",
     coverImageAlt: "The final NollKIT logo.",
     featured: false,
-    galleryGroups: [
-      {
-        label: "Logo",
-        images: [
-          {
-            src: "/images/case-studies/graphicdesign/Logo_Final_09CCDA.png",
-            alt: "The final NollKIT logo.",
-            width: 3300,
-            height: 2400,
-          },
-          {
-            src: "/images/case-studies/graphicdesign/logoAxeln.png",
-            alt: "The NollKIT logo applied to a jacket sleeve.",
-            width: 223,
-            height: 218,
-          },
-        ],
-      },
-      {
-        label: "Märke",
-        images: [
-          {
-            src: "/images/case-studies/graphicdesign/Marke22.png",
-            alt: "The NollKIT 2022 badge design.",
-            width: 2000,
-            height: 2000,
-          },
-          {
-            src: "/images/case-studies/graphicdesign/markesput.png",
-            alt: "The NollKIT badge embroidered onto fabric.",
-            width: 482,
-            height: 708,
-          },
-          {
-            src: "/images/case-studies/graphicdesign/marketyg.png",
-            alt: "The NollKIT badge design printed on fabric.",
-            width: 627,
-            height: 602,
-          },
-        ],
-      },
-      {
-        label: "Nollan",
-        images: [
-          {
-            src: "/images/case-studies/graphicdesign/Nollan1.png",
-            alt: "The Nollan mascot character design, version 1.",
-            width: 390,
-            height: 394,
-          },
-          {
-            src: "/images/case-studies/graphicdesign/Nollan2.png",
-            alt: "The Nollan mascot character design, version 2.",
-            width: 262,
-            height: 229,
-          },
-        ],
-        pdfs: [
-          { url: "/images/case-studies/graphicdesign/NollanPrint2.pdf", label: "Nollan print design (PDF)" },
-          { url: "/images/case-studies/graphicdesign/NollanSpecifikation.pdf", label: "Nollan specification (PDF)" },
-        ],
-      },
-      {
-        label: "Phadder",
-        pdfs: [
-          { url: "/images/case-studies/graphicdesign/PhadderPrint.pdf", label: "Phadder print design (PDF)" },
-          { url: "/images/case-studies/graphicdesign/PhadderSpecifikation.pdf", label: "Phadder specification (PDF)" },
-        ],
-      },
-      {
-        label: "Tröja",
-        images: [
-          {
-            src: "/images/case-studies/graphicdesign/trojaaxeln.png",
-            alt: "The NollKIT branding applied to a shirt sleeve.",
-            width: 252,
-            height: 234,
-          },
-        ],
-      },
-    ],
   },
 ];
 

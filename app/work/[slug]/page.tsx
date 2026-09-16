@@ -5,7 +5,7 @@ import { BackLink } from "@/components/ui/BackLink";
 import { Button } from "@/components/ui/Button";
 import { FigmaEmbed } from "@/components/case-study/FigmaEmbed";
 import { ImageGallery } from "@/components/case-study/ImageGallery";
-import { GroupedGallery } from "@/components/case-study/GroupedGallery";
+import { NollkitGallery } from "@/components/case-study/NollkitGallery";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -55,9 +55,9 @@ export default async function CaseStudy({
           </div>
         )}
 
-        {caseStudy.galleryGroups && caseStudy.galleryGroups.length > 0 && (
+        {caseStudy.slug === "nollkit" && (
           <div className="mt-12">
-            <GroupedGallery groups={caseStudy.galleryGroups} />
+            <NollkitGallery />
           </div>
         )}
 

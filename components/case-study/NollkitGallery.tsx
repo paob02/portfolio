@@ -51,7 +51,7 @@ export function NollkitGallery() {
             width={2000}
             height={2000}
             quality={100}
-            className={`min-h-0 flex-1 ${imageClassName}`}
+            className={`aspect-square min-h-0 flex-1 ${imageClassName}`}
           />
           <Image
             src={`${BASE}/marketyg.png`}
@@ -59,7 +59,7 @@ export function NollkitGallery() {
             width={627}
             height={602}
             quality={100}
-            className={`min-h-0 flex-1 ${imageClassName}`}
+            className={`aspect-[627/602] min-h-0 flex-1 ${imageClassName}`}
           />
         </div>
         <Image

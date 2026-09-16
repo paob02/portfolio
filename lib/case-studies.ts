@@ -7,6 +7,8 @@ export type CaseStudy = {
   role: string;
   year: string;
   tags: string[];
+  /** Which section of the work page this case study is grouped under. */
+  category: "Graphic design" | "UX/UI design";
   coverImage: string;
   coverImageAlt: string;
   featured: boolean;
@@ -31,6 +33,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2023",
     tags: ["Research", "UI Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/HCI-project/cover.jpg",
     coverImageAlt: "",
     featured: true,
@@ -45,6 +48,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2024",
     tags: ["UX Design", "UI Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/multiplay/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -67,6 +71,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2024",
     tags: ["UX Design", "UI Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/booking-system/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -81,6 +86,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2025",
     tags: ["UX Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/workbook/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -95,6 +101,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2023",
     tags: ["UX Design", "UI Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/imat-skiss/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -109,6 +116,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2025",
     tags: ["UX Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/presentation/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -122,6 +130,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2026",
     tags: ["Tangible Interaction", "UX Design", "UI Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/masterthesis/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -163,6 +172,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Software Engineer Student",
     year: "2025",
     tags: ["UX Design"],
+    category: "UX/UI design",
     coverImage: "/images/case-studies/tunnel/cover.jpg",
     coverImageAlt: "",
     featured: false,
@@ -184,6 +194,7 @@ export const caseStudies: CaseStudy[] = [
     role: "Freelance",
     year: "2024",
     tags: ["Graphic design", "Illustration"],
+    category: "Graphic design",
     coverImage: "/images/case-studies/happyhydrate/cover.jpg",
     coverImageAlt: "",
     featured: false,

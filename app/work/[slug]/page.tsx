@@ -56,7 +56,7 @@ export default async function CaseStudy({
         )}
 
         {caseStudy.links && caseStudy.links.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col items-start gap-3">
             {caseStudy.links.map((link) => (
               <Button key={link.url} href={link.url} variant="secondary">
                 {link.label}

@@ -55,6 +55,16 @@ export default async function CaseStudy({
           </div>
         )}
 
+        {caseStudy.links && caseStudy.links.length > 0 && (
+          <div className="mt-8 flex flex-wrap gap-3">
+            {caseStudy.links.map((link) => (
+              <Button key={link.url} href={link.url} variant="secondary">
+                {link.label}
+              </Button>
+            ))}
+          </div>
+        )}
+
         {caseStudy.galleryImages && caseStudy.galleryImages.length > 0 && (
           <div className="mt-12">
             <ImageGallery images={caseStudy.galleryImages} stacked={caseStudy.stackedGallery} />

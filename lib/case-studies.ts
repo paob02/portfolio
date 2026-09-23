@@ -23,6 +23,8 @@ export type CaseStudy = {
    *  embedded since PDFs (e.g. a full thesis) can be far too large to show inline. */
   pdfUrl?: string;
   pdfLabel?: string;
+  /** Optional — external links (e.g. YouTube videos, related sites) shown on the case study page, in order. */
+  links?: { label: string; url: string }[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -233,13 +235,15 @@ export const caseStudies: CaseStudy[] = [
     coverImageAlt: "The final NollKIT logo.",
     featured: false,
   },
-  // Placeholder entries — cover images and copy are reused from other case studies as stand-ins
-  // until real footage/stills and summaries are ready; swap both out before this is truly "done".
+  // Placeholder entries — cover images are reused from other case studies as stand-ins
+  // until real stills are ready; swap those out before this is truly "done".
   {
     slug: "nollkit-video-editing",
     title: "Head of PR - NollKIT",
     summary:
-      "The filming and video editing work I did as Head of PR for NollKIT, the IT department's reception committee at Chalmers University of Technology — distinct from the branding work in Graphic design.",
+      "NollKIT is a non-profit comitte at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
+    details:
+      "Below, you can find the link to seven different youtube videos I singelhandedly planned, filmed and edited for the reception of new students at Chalmers University of Technology. The videos were created as informational material for new students presented in a comedic format to catch their attention and make sure they would remember the information. For exmaple: a song to remeber the 24/7 emergency number to reach the commity with any problems the new students might face.",
     role: "Voluntary work",
     year: "2022",
     tags: ["Video editing", "Filming"],
@@ -247,16 +251,32 @@ export const caseStudies: CaseStudy[] = [
     coverImage: "/images/case-studies/graphicdesign/Nollan1.png",
     coverImageAlt: "",
     featured: false,
+    links: [
+      { label: "Watch video 1", url: "https://www.youtube.com/watch?v=1FpJFQU3ZfY&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=7" },
+      { label: "Watch video 2", url: "https://www.youtube.com/watch?v=Nw5bI8KBsMk&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=2" },
+      { label: "Watch video 3", url: "https://www.youtube.com/watch?v=Gjgh6JbddFI&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=6" },
+      { label: "Watch video 4", url: "https://www.youtube.com/watch?v=cwfCVMjSY6g&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=3" },
+      { label: "Watch video 5", url: "https://www.youtube.com/watch?v=WX96En1NGiA&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=1" },
+      { label: "Watch video 6", url: "https://www.youtube.com/watch?v=IbxRfuTiRvo&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=5" },
+      { label: "Watch video 7", url: "https://www.youtube.com/watch?v=9eKj3UheERg&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=4" },
+    ],
   },
   {
     slug: "short-horror-film",
     title: "Short Horror Film",
-    summary: "A short horror film I filmed and edited.",
+    summary: "A short horror film me and a few of my classmated created for the course Interactive and Digital Storytelling in Digital Media.",
+    details: "This found-footage short film is supposed to be viewed together with a fake website we created as the interactive part of the project. The storyline is that the main character Vincent is inspired by a blog he finds online to go to the woods and take photos for a project, but not everything goes as planned. My main role in this project was to film and edit the footage we shot. I also participated as one of the actors in the film. The link to the website and the video can both be found below",
+    role: "Software Engineer Student",
+    year: "2025",
     tags: ["Video editing", "Filming"],
     category: "Video Editing",
     coverImage: "/images/case-studies/graphicdesign/flaskor.jpg",
     coverImageAlt: "",
     featured: false,
+    links: [
+      { label: "Visit the interactive website", url: "https://macesphotos.neocities.org/" },
+      { label: "Watch the short film", url: "https://youtu.be/YGNWjJfrz9c" },
+    ],
   },
   {
     slug: "random-graphic-design",

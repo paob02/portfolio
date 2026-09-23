@@ -22,14 +22,14 @@ export function CollapsibleSection({ title, children }: CollapsibleSectionProps)
           type="button"
           onClick={() => setOpen((current) => !current)}
           aria-expanded={open}
-          className="flex w-full items-center justify-between rounded-card border-2 border-[var(--palette-cafe-noir)] bg-background px-6 py-4 text-left text-foreground"
+          className="flex w-full items-center justify-between rounded-card border-2 border-[var(--palette-weathered)] bg-background px-6 py-4 text-left text-foreground"
         >
           <span>{title}</span>
           <svg
             aria-hidden="true"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="var(--palette-cafe-noir)"
+            stroke="var(--palette-weathered)"
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"

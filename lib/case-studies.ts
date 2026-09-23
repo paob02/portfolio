@@ -9,7 +9,7 @@ export type CaseStudy = {
   year?: string;
   tags: string[];
   /** Which section of the work page this case study is grouped under. */
-  category: "Graphic design" | "UX/UI design";
+  category: "Graphic design" | "UX/UI design" | "Video Editing";
   coverImage: string;
   coverImageAlt: string;
   featured: boolean;
@@ -231,6 +231,31 @@ export const caseStudies: CaseStudy[] = [
     category: "Graphic design",
     coverImage: "/images/case-studies/graphicdesign/Logo_Final_09CCDA.png",
     coverImageAlt: "The final NollKIT logo.",
+    featured: false,
+  },
+  // Placeholder entries — cover images and copy are reused from other case studies as stand-ins
+  // until real footage/stills and summaries are ready; swap both out before this is truly "done".
+  {
+    slug: "nollkit-video-editing",
+    title: "Head of PR - NollKIT",
+    summary:
+      "The filming and video editing work I did as Head of PR for NollKIT, the IT department's reception committee at Chalmers University of Technology — distinct from the branding work in Graphic design.",
+    role: "Voluntary work",
+    year: "2022",
+    tags: ["Video editing", "Filming"],
+    category: "Video Editing",
+    coverImage: "/images/case-studies/graphicdesign/Nollan1.png",
+    coverImageAlt: "",
+    featured: false,
+  },
+  {
+    slug: "short-horror-film",
+    title: "Short Horror Film",
+    summary: "A short horror film I filmed and edited.",
+    tags: ["Video editing", "Filming"],
+    category: "Video Editing",
+    coverImage: "/images/case-studies/graphicdesign/flaskor.jpg",
+    coverImageAlt: "",
     featured: false,
   },
   {

@@ -224,7 +224,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "nollkit",
     title: "Head of PR - NollKIT",
     summary:
-      "NollKIT is a non-profit comitte at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
+      "NollKIT is a non-profit committee at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
     details:
       "During my studies I participated in the IT department's reception committee. Collaborated with a team of seven to plan, budget, and execute a month-long reception for 140 new IT students, featuring daily events. Gained experience in teamwork, structured planning, graphical design, filming and video editing. Below, the logos and branding I designed is presented. Everything was created in Adobe Photoshop.",
     role: "Voluntary work",
@@ -241,7 +241,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "nollkit-video-editing",
     title: "Head of PR - NollKIT",
     summary:
-      "NollKIT is a non-profit comitte at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
+      "NollKIT is a non-profit committee at Chalmers University of Technology where I participated ina year of part-time voluntary work.",
     details:
       "Below, you can find the link to seven different youtube videos I singelhandedly planned, filmed and edited for the reception of new students at Chalmers University of Technology. The videos were created as informational material for new students presented in a comedic format to catch their attention and make sure they would remember the information. For exmaple: a song to remeber the 24/7 emergency number to reach the commity with any problems the new students might face.",
     role: "Voluntary work",
@@ -252,13 +252,13 @@ export const caseStudies: CaseStudy[] = [
     coverImageAlt: "",
     featured: false,
     links: [
-      { label: "Watch video 1", url: "https://www.youtube.com/watch?v=1FpJFQU3ZfY&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=7" },
-      { label: "Watch video 2", url: "https://www.youtube.com/watch?v=Nw5bI8KBsMk&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=2" },
-      { label: "Watch video 3", url: "https://www.youtube.com/watch?v=Gjgh6JbddFI&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=6" },
-      { label: "Watch video 4", url: "https://www.youtube.com/watch?v=cwfCVMjSY6g&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=3" },
-      { label: "Watch video 5", url: "https://www.youtube.com/watch?v=WX96En1NGiA&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=1" },
-      { label: "Watch video 6", url: "https://www.youtube.com/watch?v=IbxRfuTiRvo&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=5" },
-      { label: "Watch video 7", url: "https://www.youtube.com/watch?v=9eKj3UheERg&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=4" },
+      { label: "Watch Introduction video of committee members", url: "https://www.youtube.com/watch?v=1FpJFQU3ZfY&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=7" },
+      { label: "Watch video shown at the formal student dinner party at the end of university reception", url: "https://www.youtube.com/watch?v=Nw5bI8KBsMk&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=2" },
+      { label: "Watch student dinner party rulebook", url: "https://www.youtube.com/watch?v=Gjgh6JbddFI&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=6" },
+      { label: "Watch music video to remember emergency number", url: "https://www.youtube.com/watch?v=cwfCVMjSY6g&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=3" },
+      { label: "Watch student chant introduction", url: "https://www.youtube.com/watch?v=WX96En1NGiA&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=1" },
+      { label: "Watch discover Gothenburg video", url: "https://www.youtube.com/watch?v=IbxRfuTiRvo&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=5" },
+      { label: "Watch fun mentos in cola drinking competition", url: "https://www.youtube.com/watch?v=9eKj3UheERg&list=PLAvu0K4HkfVhGdhRePBjkXrUCFNk9Bzw8&index=4" },
     ],
   },
   {

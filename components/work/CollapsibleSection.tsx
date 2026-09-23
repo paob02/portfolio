@@ -35,7 +35,7 @@ export function CollapsibleSection({ title, children }: CollapsibleSectionProps)
             strokeLinejoin="round"
             className={cn(
               "ml-4 h-5 w-5 shrink-0 transition-transform duration-300",
-              open ? "rotate-180" : "rotate-0"
+              open ? "rotate-0" : "rotate-180"
             )}
           >
             <path d="m4.5 15.75 7.5-7.5 7.5 7.5" />
